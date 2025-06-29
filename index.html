@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HAZI STUDIO</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0f172a, #38bdf8);
+    }
+  </style>
+</head>
+<body class="flex flex-col justify-center items-center min-h-screen text-white text-center">
+
+  <!-- Logo -->
+  <div class="mb-8">
+    <h1 class="text-4xl font-bold">HAZI STUDIO</h1>
+  </div>
+
+  <!-- Kata-kata Motivasi -->
+  <div id="motivasi" class="text-xl italic mb-8"></div>
+
+  <!-- Ucapan Terimakasih -->
+  <div class="text-lg">
+    <p>Terimakasih telah menggunakan <strong>HAZI WATERBASED POMADE</strong> 😊</p>
+  </div>
+
+  <!-- Audio Player (Autoplay on Load) -->
+  <audio id="bg-music" autoplay>
+    <source src="musik.mp3" type="audio/mpeg">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <script>
+    const motivasiList = [
+      "Rambut rapi, hati pun berani menata hidup.",
+      "Perubahan besar dimulai dari disiplin kecil, seperti merawat diri.",
+      "Tetap tajam, tetap rendah hati. Gaya bukan segalanya, tapi bisa membuka jalan.",
+      "Jadilah versi terbaik dirimu, dimulai dari cermin pertama pagi ini.",
+      "Percaya diri adalah potongan rambut yang rapi dari dalam.",
+      "Penampilan bukan segalanya, tapi menghargai diri itu permulaan segalanya."
+    ];
+    const motivasiElem = document.getElementById("motivasi");
+    motivasiElem.textContent = motivasiList[Math.floor(Math.random() * motivasiList.length)];
+
+    // Autoplay fix for some mobile browsers
+    window.addEventListener('click', () => {
+      const music = document.getElementById("bg-music");
+      if (music.paused) music.play();
+    });
+  </script>
+
+</body>
+</html>
