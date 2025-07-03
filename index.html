@@ -29,6 +29,25 @@
   100% {
     background-position: 0% 50%;
   }
+  .hazi-logo {
+  position: absolute;
+  width: 60px;
+  animation: fall linear infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes fall {
+  0% {
+    top: -100px;
+    opacity: 1;
+  }
+  100% {
+    top: 100vh;
+    opacity: 0;
+  }
+}
+    
 }
 
   </style>
@@ -71,6 +90,19 @@
       const music = document.getElementById("bg-music");
       if (music.paused) music.play();
     });
+    // Efek hujan logo HAZI
+const totalLogos = 20;
+
+for (let i = 0; i < totalLogos; i++) {
+  const logo = document.createElement("img");
+  logo.src = "hazilogo.jpg"; // Ganti dengan nama file/logo kamu
+  logo.className = "hazi-logo";
+  logo.style.left = `${Math.random() * 100}vw`;
+  logo.style.animationDuration = `${3 + Math.random() * 5}s`;
+  logo.style.opacity = Math.random();
+  document.body.appendChild(logo);
+}
+    
   </script>
 
 </body>
