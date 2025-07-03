@@ -29,15 +29,18 @@
   100% {
     background-position: 0% 50%;
   }
-  .hazi-logo {
+.rain-drop {
   position: absolute;
-  width: 60px;
-  animation: fall linear infinite;
-  pointer-events: none;
+  top: -20px;
+  width: 2px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.4); /* Warna putih transparan seperti air */
+  animation: drop linear infinite;
+  border-radius: 50%;
   z-index: 0;
 }
 
-@keyframes fall {
+@keyframes drop {
   0% {
     transform: translateY(0);
     opacity: 1;
@@ -91,21 +94,17 @@
       const music = document.getElementById("bg-music");
       if (music.paused) music.play();
     });
-   // Efek hujan logo kecil
-  const totalLogos = 25;
+     // Efek hujan air
+  const totalDrops = 60;
 
-  for (let i = 0; i < totalLogos; i++) {
-    const logo = document.createElement("img");
-    logo.src = "hazilogo.jpg"; // Pastikan file ini berada di folder yang sama
-    logo.className = "hazi-logo";
-    logo.style.position = "absolute";
-    logo.style.width = `${20 + Math.random() * 30}px`; // Ukuran kecil
-    logo.style.left = `${Math.random() * 100}vw`;
-    logo.style.top = `-${Math.random() * 100}px`;
-    logo.style.opacity = Math.random();
-    logo.style.animation = `fall ${3 + Math.random() * 5}s linear infinite`;
-    logo.style.zIndex = 0;
-    document.body.appendChild(logo);
+  for (let i = 0; i < totalDrops; i++) {
+    const drop = document.createElement("div");
+    drop.className = "rain-drop";
+    drop.style.left = `${Math.random() * 100}vw`;
+    drop.style.animationDuration = `${1 + Math.random() * 2}s`;
+    drop.style.animationDelay = `${Math.random() * 2}s`;
+    drop.style.opacity = Math.random();
+    document.body.appendChild(drop);
   }
 </script>
 </body>
