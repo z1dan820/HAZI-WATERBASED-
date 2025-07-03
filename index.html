@@ -39,14 +39,15 @@
 
 @keyframes fall {
   0% {
-    top: -100px;
+    transform: translateY(0);
     opacity: 1;
   }
   100% {
-    top: 100vh;
+    transform: translateY(100vh);
     opacity: 0;
   }
 }
+
     
 }
 
@@ -90,20 +91,22 @@
       const music = document.getElementById("bg-music");
       if (music.paused) music.play();
     });
-    // Efek hujan logo HAZI
-const totalLogos = 20;
+   // Efek hujan logo kecil
+  const totalLogos = 25;
 
-for (let i = 0; i < totalLogos; i++) {
-  const logo = document.createElement("img");
-  logo.src = "hazilogo.jpg"; // Ganti dengan nama file/logo kamu
-  logo.className = "hazi-logo";
-  logo.style.left = `${Math.random() * 100}vw`;
-  logo.style.animationDuration = `${3 + Math.random() * 5}s`;
-  logo.style.opacity = Math.random();
-  document.body.appendChild(logo);
-}
-    
-  </script>
-
+  for (let i = 0; i < totalLogos; i++) {
+    const logo = document.createElement("img");
+    logo.src = "1000044141.jpg"; // Pastikan file ini berada di folder yang sama
+    logo.className = "hazi-logo";
+    logo.style.position = "absolute";
+    logo.style.width = `${20 + Math.random() * 30}px`; // Ukuran kecil
+    logo.style.left = `${Math.random() * 100}vw`;
+    logo.style.top = `-${Math.random() * 100}px`;
+    logo.style.opacity = Math.random();
+    logo.style.animation = `fall ${3 + Math.random() * 5}s linear infinite`;
+    logo.style.zIndex = 0;
+    document.body.appendChild(logo);
+  }
+</script>
 </body>
 </html>
